@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Main
-Author: Jenny Tyler & Les Howarth
+Title: 
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 0.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source: 
 */
 
 import javax.swing.SwingUtilities;
@@ -51,17 +51,5 @@ public class Main {
 }
 
 /*
-7 Sept 2024 - Created File
-8 Sept 2024 - Finished Initialisation
-29 October 2024 - Updated to version 1
-2 November 2024 - Added the player class to hold the player details
-				- Removed the extraneous files
-3 November 2024 - Added code to create a new game
-4 November 2024 - Moved game engine into GrameFrame instead
-23 December 2024 - Updated to version 2.
-31 January 2025 - Completed Testing and increased version
-5 March 2025 - Increased to v4.0
-9 March 2025 - Added error handling
-31 July 2025 - Added JavaDocs
-3 December 2025 - Increased version number
+3 December 2025 - Created File
 */

@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Starter
-Author: Jenny Tyler & Les Howarth
-Translator: David Sarkies
-Version: 5.0
+Title: 
+Author: 
+Translator: 
+Version: 0.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source: 
 */
 
 import java.util.logging.FileHandler;
@@ -65,11 +65,5 @@ public class Start {
 }
 
 /*
-7 September 2024 - Created File
-29 October 2024 - Updated to version 1.
-23 December 2024 - Updated to version 2.
-31 January 2025 - Completed Testing and increased version
-5 March 2025 - Increased to v4.0
-9 March 2025 - Added try/catch & logging
-3 December 2025 - Increased version number
+3 December 2025 - Created File
 */

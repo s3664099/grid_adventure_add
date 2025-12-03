@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Action Result
-Author: Jenny Tyler & Les Howarth
+Title: 
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 0.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303 
+Source: 
 */
 
 package command_process;
@@ -112,10 +112,5 @@ public class ActionResult {
     }
 }
 
-/* 5 May 2025 - Created File
- * 7 May 2025 - Added null constructor
- * 8 May 2025 - Added constructor for all variables
- * 17 July 2025 - Removed redundant include
- * 1 September 2025 - Updated based on recommendations. Added JavaDocs
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
 */
