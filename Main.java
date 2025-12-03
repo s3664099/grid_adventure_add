@@ -7,8 +7,6 @@ Date: 3 December 2025
 Source: https://archive.org/details/island-of-secrets_202303
 */
 
-
-
 import javax.swing.SwingUtilities;
 
 import game.Game;
