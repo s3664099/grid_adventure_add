@@ -1,9 +1,9 @@
 /*
-Title: 
+Title: <Game Name> Main 
 Author: 
 Translator: David Sarkies
-Version: 0.0
-Date: 3 December 2025
+Version: 0.1
+Date: 4 December 2025
 Source: 
 */
 
@@ -52,4 +52,5 @@ public class Main {
 
 /*
 3 December 2025 - Created File
+4 December 2025 - Added Title Name
 */

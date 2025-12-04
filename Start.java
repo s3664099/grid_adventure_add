@@ -1,9 +1,9 @@
 /*
-Title: 
+Title: <Game Name> Start
 Author: 
 Translator: 
-Version: 0.0
-Date: 3 December 2025
+Version: 0.1
+Date: 4 December 2025
 Source: 
 */
 
@@ -66,4 +66,5 @@ public class Start {
 
 /*
 3 December 2025 - Created File
+4 December 2025 - Added title back
 */
