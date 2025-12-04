@@ -1,8 +1,8 @@
 /*
-Title: Island of Secrets Parsed Command
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Parsed Command
+Author:
 Translator: David Sarkies
-Version: 5.0
+Version: 0.0
 Date: 3 December 2025
 Source: https://archive.org/details/island-of-secrets_202303
 */
@@ -50,9 +50,7 @@ public class ParsedCommand {
     /**
      * Represents the specific type of command identified by the parser.
      */
-	private enum CommandType { NONE,TAKE,GIVE,DROP,EAT,DRINK,RIDE,OPEN,CHOP,ATTACK,KILL,SWIM,SHELTER,
-								HELP,SCRATCH,CATCH,RUB,READ,EXAMINE,FILL,SAY,WAIT,WAVE,INFO,
-								LOAD,SAVE,QUIT,RESTART};
+	private enum CommandType { NONE,TAKE,GIVE,DROP,LOAD,SAVE,QUIT,RESTART};
 
 	private CommandState commandState = CommandState.NONE;
 	private CommandType commandType = CommandType.NONE;
@@ -104,12 +102,8 @@ public class ParsedCommand {
 		
 		if (verbNumber>GameEntities.MOVE_BOTTOM && verbNumber<GameEntities.MOVE_TOP) {
 			commandState = CommandState.MOVE;
-		} else if (verbNumber == GameEntities.CMD_EAT || verbNumber == GameEntities.CMD_DRINK || 
-					verbNumber == GameEntities.CMD_SWIM || verbNumber == GameEntities.CMD_SHELTER ||
-					verbNumber == GameEntities.CMD_WAIT || verbNumber == GameEntities.CMD_WAVE || 
-					verbNumber == GameEntities.CMD_INFO || verbNumber == GameEntities.CMD_LOAD || 
-					verbNumber == GameEntities.CMD_SAVE || verbNumber == GameEntities.CMD_QUIT ||
-					verbNumber == GameEntities.CMD_REST || verbNumber == GameEntities.CMD_NORTH ||
+		} else if (verbNumber == GameEntities.CMD_LOAD || verbNumber == GameEntities.CMD_SAVE || 
+				   verbNumber == GameEntities.CMD_QUIT || verbNumber == GameEntities.CMD_NORTH ||
 					verbNumber == GameEntities.CMD_SOUTH || verbNumber == GameEntities.CMD_EAST ||
 					verbNumber == GameEntities.CMD_WEST || verbNumber == GameEntities.CMD_RESTART) {
 			commandState = CommandState.SINGLE_COMMAND;
@@ -131,26 +125,10 @@ public class ParsedCommand {
      */
 	private void setSingleCommand(int verbNumber) {
 		
-		if (verbNumber == GameEntities.CMD_EAT) {
-			commandType = CommandType.EAT;
-		} else if (verbNumber == GameEntities.CMD_DRINK) {
-			commandType = CommandType.DRINK;
-		} else if (verbNumber == GameEntities.CMD_INFO) {
-			commandType = CommandType.INFO;
-		} else if (verbNumber == GameEntities.CMD_WAVE) {
-			commandType = CommandType.WAVE;
-		} else if (verbNumber == GameEntities.CMD_LOAD) {
-			commandType = CommandType.LOAD;
-		} else if (verbNumber == GameEntities.CMD_SAVE) {
+		if (verbNumber == GameEntities.CMD_SAVE) {
 			commandType = CommandType.SAVE;
-		} else if (verbNumber == GameEntities.CMD_REST || verbNumber == GameEntities.CMD_WAIT) {
-			commandType = CommandType.WAIT;
 		} else if (verbNumber == GameEntities.CMD_QUIT) {
 			commandType = CommandType.QUIT;
-		} else if (verbNumber == GameEntities.CMD_SWIM) {
-			commandType = CommandType.SWIM;
-		} else if (verbNumber == GameEntities.CMD_SHELTER) {
-			commandType = CommandType.SHELTER;
 		} else if (verbNumber == GameEntities.CMD_RESTART) {
 			commandType = CommandType.RESTART;
 		}
@@ -167,34 +145,11 @@ public class ParsedCommand {
      */
 	private void setMultipleCommand(int verbNumber) {
 		
-		if (verbNumber == GameEntities.CMD_TAKE || verbNumber == GameEntities.CMD_GET || 
-			verbNumber == GameEntities.CMD_PICK || verbNumber == GameEntities.CMD_CATCH) {
+		if (verbNumber == GameEntities.CMD_TAKE) {
 			commandType = CommandType.TAKE;
-		} else if (verbNumber == GameEntities.CMD_GIVE) {
-			commandType = CommandType.GIVE;
-		} else if (verbNumber == GameEntities.CMD_DROP||verbNumber == GameEntities.CMD_LEAVE) {
+		} else if (verbNumber == GameEntities.CMD_DROP) {
 			commandType = CommandType.DROP;
-		} else if (verbNumber == GameEntities.CMD_RIDE) {
-			commandType = CommandType.RIDE;
-		} else if (verbNumber == GameEntities.CMD_OPEN) {
-			commandType = CommandType.OPEN;
-		} else if (verbNumber>GameEntities.CHOP_BOTTOM && verbNumber <GameEntities.CHOP_TOP) {
-			commandType = CommandType.CHOP;
-		} else if (verbNumber>GameEntities.ATTACK_BOTTOM && verbNumber <GameEntities.ATTACK_TOP) {
-			commandType = CommandType.ATTACK;
-		} else if (verbNumber == GameEntities.CMD_KILL) {
-			commandType = CommandType.KILL;
-		} else if (verbNumber == GameEntities.CMD_HELP || verbNumber == GameEntities.CMD_SCRATCH) {
-			commandType = CommandType.HELP;
-		} else if (verbNumber == GameEntities.CMD_RUB || verbNumber == GameEntities.CMD_POLISH) {
-			commandType = CommandType.RUB;
-		} else if (verbNumber == GameEntities.CMD_READ || verbNumber == GameEntities.CMD_EXAMINE) {
-			commandType = CommandType.EXAMINE;
-		} else if (verbNumber == GameEntities.CMD_FILL) {
-			commandType = CommandType.FILL;
-		} else if (verbNumber == GameEntities.CMD_SAY) {
-			commandType = CommandType.SAY;
-		}
+		} 
 	}
 	
     // --------------------
@@ -303,91 +258,6 @@ public class ParsedCommand {
 		return commandType == CommandType.GIVE;
 	}
 	
-    /** @return true if the command is an EAT command */	
-	public boolean checkEat() {
-		return commandType == CommandType.EAT;
-	}
-	
-    /** @return true if the command is a DRINK command */
-	public boolean checkDrink() {
-		return commandType == CommandType.DRINK;
-	}
-	
-	/** @return true if the command is a WAIT/REST command */
-	public boolean checkRest() {
-		return commandType == CommandType.WAIT;
-	}
-	
-	/** @return true if the command is an INFO command */
-	public boolean checkInfo() {
-		return commandType == CommandType.INFO;
-	}
-	
-	/** @return true if the command is a WAVE command */
-	public boolean checkWave() {
-		return commandType == CommandType.WAVE;
-	}
-	
-	/** @return true if the command is a HELP command */
-	public boolean checkHelp() {
-		return commandType == CommandType.HELP;
-	}
-	
-	/** @return true if the command is a RUB/POLISH command */
-	public boolean checkPolish() {
-		return commandType == CommandType.RUB;
-	}
-	
-    /** @return true if the command is a SAY command */
-	public boolean checkSay() {
-		return commandType == CommandType.SAY;
-	}
-	
-    /** @return true if the command is a READ/EXAMINE command */
-	public boolean checkExamine() {
-		return commandType == CommandType.EXAMINE;
-	}
-	
-    /** @return true if the command is a FILL command */
-	public boolean checkFill() {
-		return commandType == CommandType.FILL;
-	}
-	
-    /** @return true if the command is a RIDE command */
-	public boolean checkRide() {
-		return commandType == CommandType.RIDE;
-	}
-	
-    /** @return true if the command is an OPEN command */
-	public boolean checkOpen() {
-		return commandType == CommandType.OPEN;
-	}
-	
-    /** @return true if the command is a SWIM command */
-	public boolean checkSwim() {
-		return commandType == CommandType.SWIM;
-	}
-	
-    /** @return true if the command is a SHELTER command */
-	public boolean checkShelter() {
-		return commandType == CommandType.SHELTER;
-	}
-	
-    /** @return true if the command is a CHOP command */
-	public boolean checkChop() {
-		return commandType == CommandType.CHOP;
-	}
-	
-    /** @return true if the command is a KILL command */
-	public boolean checkKill() {
-		return commandType == CommandType.KILL;
-	}
-	
-    /** @return true if the command is an ATTACK command */
-	public boolean checkAttack() {
-		return commandType == CommandType.ATTACK;
-	}
-	
     /** @return true if the command is a LOAD command */
 	public boolean checkLoad() {
 		return commandType == CommandType.LOAD;
@@ -417,65 +287,8 @@ public class ParsedCommand {
 	public boolean checkNounRoom() {
 		return splitTwoCommand[1] != null && splitTwoCommand[1].equals(GameEntities.NOUN_ROOM);
 	}
-	
-	/** @return true if the noun is 'map' */
-	public boolean checkNounMap() {
-		return splitTwoCommand[1] != null && splitTwoCommand[1].equals(GameEntities.NOUN_MAP);
-	}
-	
-	/** @return true if the noun is 'diary' */
-	public boolean checkNounDiary() {
-		return splitTwoCommand[1] != null && splitTwoCommand[1].equals(GameEntities.NOUN_DIARY);
-	}
-	
-	/** @return true if the noun is 'papers' */
-	public boolean checkNounPapers() {
-		return splitTwoCommand[1] != null && splitTwoCommand[1].equals(GameEntities.NOUN_PAPERS);
-	}
-	
-	/** @return true if the noun is 'wine' */
-	public boolean checkNounWine() {
-		return splitTwoCommand[1] != null && splitTwoCommand[1].equals(GameEntities.NOUN_WINE);
-	}
-	
-	/** @return true if the noun is 'food' */
-	public boolean checkNounFood() {
-		return splitFullCommand[1] != null && splitFullCommand[1].equals(GameEntities.NOUN_FOOD);
-	}
-	
-	/** @return true if the noun is 'drink' */
-	public boolean checkNounDrink() {
-		return splitFullCommand[1] != null && splitFullCommand[1].equals(GameEntities.NOUN_DRINK);
-	}
 }
 
-/* 24 April 2025 - Created File
- * 1 May 2025 - Added varables and built constructor
- * 2 May 2025 - Added getters for command validation
- * 3 May 2025 - Added getter for codedCommand. Added commandState
- * 7 May 2025 - Added command enums. Set commandType for single Commands
- * 				Tightened check enum methods
- * 8 May 2025 - Added the multi-word commands. Added check for take/drop/give
- * 16 May 2025 - Added code to split all the command, and one to split into verb/noun.
- * 28 May 2025 - Added check for eat and drink
- * 29 May 2025 - Added check for rest/wait
- * 31 May 2025 - Added Info & Wave Function
- * 1 June 2025 - Added check for help & polish commands
- * 2 June 2025 - Added check for Speak & Examine
- * 8 June 2025 - Added check for fill
- * 9 June 2025 - Added check for ride & open
- * 10 June 2025 - Added check for swim & shelter
- * 11 June 2025 - Added check for combat actions
- * 16 June 2025 - Added checks for load,save & quit
- * 24 June 2025 - Added script to make single special movement commands to go special command
- * 25 June 2025 - Added function call to set multiple command
- * 20 July 2025 - Added function to change command state
- * 24 August 2025 - Updated remaining commands.
- * 27 August 2025 - Fixed checkNonCommand
- * 13 October 2025 - Added check to confirm that table is a valid command
- * 2 November 2025 - Added check to confirm that room is a valid command
- * 5 November 2025 - Added check to confirm drinking wine
- * 6 November 2025 - Added restart command
- * 8 November 2025 - Added food & drink nouns
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created file
+ * 5 December 2025 - Cleared game specific data
  */

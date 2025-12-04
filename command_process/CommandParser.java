@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Command Parser
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Command Parser
+Author: 
 Translator: David Sarkies
-Version: 5.0
-Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Version: 0.1
+Date: 5 December 2025
+Source: 
 */
 
 package command_process;
@@ -51,12 +51,7 @@ public class CommandParser {
 		rawInput = parseMovement(rawInput);
 		String[] splitCommand = splitCommand(rawInput);
 		int verbNumber = getVerbNumber(splitCommand[0]);
-		
-		if (isLily(splitCommand[1].trim())) {
-			splitCommand[1] = splitCommand[1].replace(GameEntities.NOUN_LILY, GameEntities.NOUN_FLOWER);
-			rawInput = rawInput.replace(GameEntities.NOUN_LILY, GameEntities.NOUN_FLOWER);
-		}
-			
+					
 		if (game.isGiveState()) {
 			boolean giveResponse = false;
 			if(splitCommand[0].equals(GameEntities.WORD_TO)) {
@@ -83,10 +78,7 @@ public class CommandParser {
 			command = parseLook(splitCommand,command,room);
 		} else if (command.checkMoveState()) {
 			command = parseMove(command,room);
-		} else if (command.checkEat()) {
-			command = parseEat(command);
-		}
-		
+		} 
 		return command;
 	}
 	
@@ -107,9 +99,6 @@ public class CommandParser {
 		
 		if(commands.length>1) {
 			splitCommand[1] = rawInput.substring(commands[0].length(),rawInput.length());
-			if (isBoatman(splitCommand[1])) {
-				splitCommand[1] = setBoat();
-			}
 		}
 		
 		return splitCommand;
@@ -150,12 +139,6 @@ public class CommandParser {
 	 * @return the noun number if found, otherwise -1
 	 */
 	private int getNounNumber(String noun,int verbNumber) {
-
-		if (isLily(noun)) {
-			noun = setFlower();
-		} else if (isBoatman(noun)) {
-			noun = setBoat();
-		}
 		
 		int nounNumber = Constants.NUMBER_OF_NOUNS;
 				
@@ -225,11 +208,7 @@ public class CommandParser {
 		if (splitCommand[1].length()==0) {
 			splitCommand[1] = GameEntities.WORD_ROOM;
 		}
-		
-		if (splitCommand[1].equals(GameEntities.WORD_WELL) && room==GameEntities.ROOM_WELL) {
-			splitCommand[1]=GameEntities.WORD_ROOM;
-		}
-						
+								
 		splitCommand[0] = GameEntities.WORD_EXAMINE;
 		int verbNumber = getVerbNumber(splitCommand[0]);
 		
@@ -316,43 +295,8 @@ public class CommandParser {
 				
 		return command;
 	}
-	
-	private boolean isLily(String noun) {
-		return noun.contains(GameEntities.NOUN_LILY);
-	}
-	
-	private boolean isBoatman(String noun) {
-		return noun.equals(GameEntities.NOUN_BOATMAN);
-	}
-
-	private String setFlower() {
-		return GameEntities.NOUN_FLOWER;
-	}
-	
-	private String setBoat() {
-		return GameEntities.NOUN_BOAT;
-	}
 }
 
-/* 28 April 2025 - Created File
- * 30 April 2025 - Started building parser
- * 1 May 2025 - Completed parser
- * 2 May 2025 - Updated for command validator
- * 3 May 2025 - Added Parse Look method
- * 4 May 2025 - Added Parse Move method
- * 22 May 2025 - Moved CommandNormaliser here as private class
- * 28 May 2025 - Added parsing for eating
- * 2 June 2025 - Added further parsing for examine
- * 22 June 2025 - Fixed problem where negative nounNumber blocked program.
- * 23 June 2025 - Stripped whitespace from noun
- * 24 June 2025 - Added parser for single command movement commands
- * 29 June 2025 - Fixed problem with multiple words in noun.
- * 2 July 2025 - Added code to handle response to give
- * 23 July 2025 - Fixed parse look so can use look command
- * 25 August 2025 - Removed some of the magic variables. Added JavaDocs
- * 5 Sepember 2025 - Updated based on changes to consume
- * 29 October 2025 - Added validation to change lily to flower
- * 5 November 2025 - Added switch for boatman to boat
- * 3 December 2025 - Change lily to flower if being used.
- * 					- Increased version number
+/* 3 December 2025 - Created File
+ * 5 December 2025 - Removed game specifc code
  */

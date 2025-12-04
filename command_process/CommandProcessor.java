@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Command Processor
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Command Processor
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 0.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source:
 */
 
 package command_process;
@@ -84,13 +84,5 @@ public class CommandProcessor {
 	}
 }
 
-/* 23 April 2025 - Create class
- * 27 April 2025 - Moved Swimming code to Swimming. Added swimming state change
- * 28 April 2025 - Started building the command processing components
- * 2 May 2025 - Added command validator
- * 4 May 2025 - Updated to move player into validator
- * 18 June 2025 - Tidied up code
- * 30 June 2025 - Removed the give section
- * 1 September 2025 - Updated based on recommendations and added Javadocs.
- * 3 December 2025 - Increased version number
+/*3 December 2025 - Created File
  */
