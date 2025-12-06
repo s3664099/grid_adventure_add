@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Search Game Button
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Search Game Button
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 0.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source: 
 */
 
 package controller;
@@ -103,9 +103,5 @@ public class SearchGameButton implements ActionListener {
 	}
 }
 
-/* 26 February 2025 - Created Class
- * 13 April 2025 - Updated class to handle new architecture
- * 21 April 2025 - Updated based on DeepSeek recommendations
- * 19 September 2025 - Updated error handling & added JavaDocs
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
  */

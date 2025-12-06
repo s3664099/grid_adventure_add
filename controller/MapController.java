@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Map Controller
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Map Controller
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 0.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source: 
 */
 
 package controller;
@@ -71,8 +71,5 @@ public class MapController {
 	}
 }
 
-/* 21 April 2025 - Created File
- * 18 September 2025 - Update file by adding HOVER_COLOUR and removing unused variables
- * 					 - Added JavaDocs
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
  */

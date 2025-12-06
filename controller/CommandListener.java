@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Command Listener
-Author: Jenny Tyler & Les Howarth
+Title:<Game Name> Command Listener
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 0.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source: 
 */
 
 package controller;
@@ -127,20 +127,5 @@ public class CommandListener implements KeyListener {
 	public void keyTyped(KeyEvent arg0) {}
 }
 
-/* 6 November 2024 - Created File
- * 22 December 2024 - Added check for special response requests
- * 23 December 2024 - Added process for sheltering
- * 					  Updated to version 2.
- * 19 January 2025 - Added notes for unused methods.
- * 31 January 2025 - Completed Testing and increased version
- * 5 March 2025 - Increased to v4.0
- * 22 March 2025 - Added error handling
- * 27 March 2025 - Update file for new stule
- * 31 March 2025 - Updated file to handle Decoupling
- * 1 April 2025 - Updated listener to make it tighter
- * 21 April 2025 - Updated based on recommendations by deepSeek
- * 23 April 2025 - Removed process shelter and give
- * 30 June 2025 - Removed separate process for give
- * 17 September 2025 - Added JavaDocs
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
  */

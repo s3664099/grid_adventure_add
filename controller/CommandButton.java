@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Command Button
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Command Button
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 0.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source: 
 */
 
 package controller;
@@ -105,12 +105,5 @@ public class CommandButton implements ActionListener {
 
 }
 
-/* 25 February 2025 - Created Class
- * 5 March 2025 - Increased version to v4.0
- * 22 March 2025 - Added Error Handling
- * 31 March 2025 - Removed panel from process command
- * 1 April 2024 - Updated listener
- * 21 April 2025 - Updated class based on recommendations by DeepSeek
- * 17 September 2025 - Added JavaDocs
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
  */

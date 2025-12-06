@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Quit Button
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Quit Button
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 0.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source: 
 */
 
 package controller;
@@ -86,15 +86,5 @@ public class QuitButton implements ActionListener {
 	}
 }
 
-/* 23 December 2024 - Create File
- * 31 January 2025 - Completed Testing and increased version
- * 17 February 2025 - Added option to restart the game
- * 5 March 2025 - Increased to v4.0
- * 15 March 2025 - Added the Game Initialiser
- * 21 March 2025 - Removed extraneous include
- * 8 April 2025 - Add the quit functionality
- * 9 April 2025 - Added the restart functionality
- * 21 April 2025 - Updated based on DeepSeek's recommendations.
- * 18 September 2025 - Updated code based on recommendations
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
  */

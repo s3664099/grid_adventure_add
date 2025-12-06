@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Game Button
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Game Button
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 0.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source: 
 */
 
 package controller;
@@ -52,15 +52,5 @@ public class ShowMainViewButton implements ActionListener {
 	}
 }
 
-/* 10 February 2025 - Created Class
- * 26 February 2025 - Added code to
- * 5 March 2025 - Increased to v4.0
- * 26 March 2025 - Commented out code to enable to run
- * 7 April 2025 - Action now returns player to the main screen.
- * 13 April 2025 - Updated button for changing the savedGameState
- * 21 April 2025 - Updated based on deepseek recommendations
- * 25 April 2025 - Changed based on updated to Enums
- * 27 July 2025 - Removed functions not used
- * 21 September 2025 - 
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
  */
