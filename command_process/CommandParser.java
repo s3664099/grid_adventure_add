@@ -49,31 +49,12 @@ public class CommandParser {
 		rawInput = parseMovement(rawInput);
 		String[] splitCommand = splitCommand(rawInput);
 		int verbNumber = getVerbNumber(splitCommand[0]);
-					
-		if (game.isGiveState()) {
-			boolean giveResponse = false;
-			if(splitCommand[0].equals(GameEntities.WORD_TO)) {
-				rawInput = GameEntities.WORD_GIVE+GameEntities.SPACE+game.getGiveNoun()+GameEntities.SPACE+rawInput;
-				giveResponse = true;
-			} else if (verbNumber == GameEntities.CMD_NO_VERB) {
-				rawInput = GameEntities.WORD_GIVE+GameEntities.SPACE+game.getGiveNoun()+GameEntities.SPACE
-						+GameEntities.WORD_TO+GameEntities.SPACE+rawInput;
-				giveResponse = true;
-			}
-			
-			if (giveResponse) {
-				splitCommand = splitCommand(rawInput);
-				verbNumber = getVerbNumber(splitCommand[0]);
-			}
-		}
-		
+							
 		splitCommand[1] = splitCommand[1].trim();
 		int nounNumber = getNounNumber(splitCommand[1],verbNumber);
 		ParsedCommand command = new ParsedCommand(verbNumber,nounNumber,splitCommand,rawInput);
 
-		if (splitCommand[0].equals(GameEntities.WORD_LOOK)) {
-			command = parseLook(splitCommand,command,room);
-		} else if (command.checkMoveState()) {
+		if (command.checkMoveState()) {
 			command = parseMove(command,room);
 		} 
 		return command;
@@ -164,30 +145,7 @@ public class CommandParser {
 				
 		return nounNumber;
 	}
-		
-	/**
-	 * Special-case parsing for the "look" command.
-	 * <p>
-	 * Converts "look" into "examine" and adjusts noun resolution, particularly
-	 * for context-sensitive cases like looking into a well.
-	 *
-	 * @param splitCommand the split verb/noun components
-	 * @param command the partially parsed command
-	 * @param room the current room identifier
-	 * @return a new {@link ParsedCommand} reflecting the look/examine action
-	 */
-	private ParsedCommand parseLook(String[] splitCommand,ParsedCommand command,int room) {
 			
-		if (splitCommand[1].length()==0) {
-			splitCommand[1] = GameEntities.WORD_ROOM;
-		}
-								
-		splitCommand[0] = GameEntities.WORD_EXAMINE;
-		int verbNumber = getVerbNumber(splitCommand[0]);
-		
-		return new ParsedCommand(verbNumber,command.getNounNumber(),splitCommand,command.getCommand());
-	}
-	
 	/**
 	 * Delegates movement command parsing to the {@link Move} class.
 	 *
