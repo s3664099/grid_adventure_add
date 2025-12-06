@@ -2,8 +2,8 @@
 Title: <Game Name> Command Validator
 Author: 
 Translator: David Sarkies
-Version: 0.1
-Date: 5 December 2025
+Version: 0.2
+Date: 6 December 2025
 Source: https://archive.org/details/island-of-secrets_202303
 */
 
@@ -11,11 +11,7 @@ package command_process;
 
 import java.util.logging.Logger;
 
-import commands.Consume;
-import commands.ItemCommands;
-import commands.Move;
 import data.Constants;
-import data.GameEntities;
 import game.Game;
 import game.Player;
 
@@ -65,13 +61,7 @@ public class CommandValidator {
 		}
 		
 		ActionResult result = new ActionResult(game,player,validCommand);
-		logger.info("Command Valid: "+validCommand+" Code: "+command.getCodedCommand());
-		
-		if (validCommand) {
-			result = specialCommandValidator(command,result);
-		} else {
-			result = specialNounValidator(command,result);
-		}
+		logger.info("Command Valid: "+validCommand);
 		
 		if (checkResultNull(result)) {
 			result = new ActionResult(result.getGame(),player,result.isValid());
@@ -79,36 +69,7 @@ public class CommandValidator {
 		
 		return result;
 	}
-	
-    /**
-     * Applies specialized command checks for movement, item interactions, 
-     * and unique entities like trapdoors.
-     *
-     * @param command the parsed player command
-     * @param result the current validation result
-     * @return the updated {@link ActionResult} after applying special rules
-     */
-	private ActionResult specialCommandValidator(ParsedCommand command,ActionResult result) {
-		
-		Game game = result.getGame();
-		Player player = result.getPlayer();
-		
-		return result;
-	}
-	
-	/**
-     * Applies specialized command checks for nouns that are not listed as the main nouns, 
-     *
-     * @param command the parsed player command
-     * @param result the current validation result
-     * @return the updated {@link ActionResult} after applying special rules
-     */
-	private ActionResult specialNounValidator(ParsedCommand command,ActionResult result) {
-		Game game = result.getGame();
-		Player player = result.getPlayer();		
-		return result;
-	}
-	
+			
     // ===== Command checks =====
 
     /**
@@ -162,25 +123,7 @@ public class CommandValidator {
 	private boolean checkResultNull(ActionResult result) {
 		return result.getPlayer()==null && !result.isValid();
 	}
-		
-    // ===== State checks =====
-	
-	private boolean checkMoveState(ParsedCommand command) {
-		return command.checkMoveState();
-	}
-	
-	private boolean checkTakeState(ParsedCommand command) {
-		return command.checkTake();
-	}
-	
-	private boolean checkDropOrGive(ParsedCommand command) {
-		return command.checkDrop() || command.checkGive();
-	}
-	
-	private boolean checkGive(ParsedCommand command,ActionResult result) {
-		return command.checkGive() && result.isValid();
-	}
-			
+					
     // ===== Error handling =====
 
 	/** Adds a "You can't do that" message when verb/noun invalid. */
@@ -212,37 +155,9 @@ public class CommandValidator {
 		game.addMessage("Most commands need two words",true,true);
 		return game;
 	}
-		
-	   // ===== Validators for specific actions =====
-	
-	private ActionResult validateMoveCommand(ParsedCommand command, Game game, Player player) {
-		Move moveValidator = new Move();
-		return moveValidator.validateMove(command,game,player);
-	}
-	
-	private ActionResult validateTakeCommand(ParsedCommand command, Game game, Player player) {
-		ItemCommands takeValidator = new ItemCommands();
-		return takeValidator.validateTake(game, player, command);
-	}
-	
-	private ActionResult validateDropOrGive(ParsedCommand command, Game game, Player player) {
-		ItemCommands carryingValidator = new ItemCommands();
-		ActionResult result = carryingValidator.validateCarrying(game,player,command);
-		if (checkGive(command,result)) {
-			result = validateGive(command,game,player,carryingValidator);
-		}
-		return result;
-	}
-	
-	private ActionResult validateGive(ParsedCommand command, Game game, Player player,ItemCommands carryingValidator) {
-		return carryingValidator.validateGive(game, player, command);
-	}
-	
-	private ActionResult validateExamineNoun(Game game, Player player) {
-		return new ActionResult(game,player,true);
-	}
 }
 
 /* 3 December 2025 - Created File
  * 5 December 2025 - Removed game specific code
+ * 6 December 2025 - Removed game specific methods
  */

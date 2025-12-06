@@ -2,18 +2,16 @@
 Title: <Game Name> Command Parser
 Author: 
 Translator: David Sarkies
-Version: 0.1
-Date: 5 December 2025
+Version: 0.2
+Date: 6 December 2025
 Source: 
 */
 
 package command_process;
 
-import commands.Consume;
 import commands.Move;
 import data.Constants;
 import data.GameEntities;
-import data.Item;
 import data.RawData;
 import game.Game;
 
@@ -71,8 +69,7 @@ public class CommandParser {
 		
 		splitCommand[1] = splitCommand[1].trim();
 		int nounNumber = getNounNumber(splitCommand[1],verbNumber);
-		String codedCommand = codeCommand(splitCommand,nounNumber,game,room);
-		ParsedCommand command = new ParsedCommand(verbNumber,nounNumber,codedCommand,splitCommand,rawInput);
+		ParsedCommand command = new ParsedCommand(verbNumber,nounNumber,splitCommand,rawInput);
 
 		if (splitCommand[0].equals(GameEntities.WORD_LOOK)) {
 			command = parseLook(splitCommand,command,room);
@@ -167,31 +164,7 @@ public class CommandParser {
 				
 		return nounNumber;
 	}
-	
-	/**
-	 * Encodes a command into a numeric string representation, including the
-	 * noun number, item location, item flag, and current room.
-	 *
-	 * @param splitCommand the split verb/noun components
-	 * @param nounNumber the resolved noun number
-	 * @param game the current game instance
-	 * @param room the current room identifier
-	 * @return the coded command string, or empty string if noun is invalid
-	 */
-	private String codeCommand(String[] splitCommand, int nounNumber, Game game, int room) {
 		
-		String codedCommand = "";
-		
-		if (nounNumber != -1) {
-			Item item = game.getItem(nounNumber);
-			codedCommand = String.format("%d%d%d%d",nounNumber,Math.abs(item.getItemLocation()),
-										 Math.abs(item.getItemFlag()),room);
-			codedCommand = String.valueOf(Integer.parseInt(codedCommand.trim()));
-		}
-		
-		return codedCommand;
-	}
-	
 	/**
 	 * Special-case parsing for the "look" command.
 	 * <p>
@@ -212,8 +185,7 @@ public class CommandParser {
 		splitCommand[0] = GameEntities.WORD_EXAMINE;
 		int verbNumber = getVerbNumber(splitCommand[0]);
 		
-		return new ParsedCommand(verbNumber,command.getNounNumber(),command.getCodedCommand(),
-								splitCommand,command.getCommand());
+		return new ParsedCommand(verbNumber,command.getNounNumber(),splitCommand,command.getCommand());
 	}
 	
 	/**
@@ -226,17 +198,7 @@ public class CommandParser {
 	private ParsedCommand parseMove(ParsedCommand command,int room) {
 		return new Move().normaliseMoveCommand(command, room);
 	}
-	
-	/**
-	 * Delegates "eat" command parsing to the {@link Consume} class.
-	 *
-	 * @param command the parsed command to refine
-	 * @return the updated {@link ParsedCommand} after consumption parsing
-	 */
-	private ParsedCommand parseEat(ParsedCommand command) {
-		return new Consume(command).parseEat();
-	}
-	
+		
 	/**
 	 * Helper class that normalizes shorthand or alternative user inputs
 	 * into canonical command forms.
@@ -298,5 +260,6 @@ public class CommandParser {
 }
 
 /* 3 December 2025 - Created File
- * 5 December 2025 - Removed game specifc code
+ * 5 December 2025 - Removed game specific code
+ * 6 December 2025 - Removed coded command
  */

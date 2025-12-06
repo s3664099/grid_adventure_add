@@ -2,8 +2,8 @@
 Title: <Game Name> Parsed Command
 Author:
 Translator: David Sarkies
-Version: 0.0
-Date: 3 December 2025
+Version: 0.2
+Date: 6 December 2025
 Source: https://archive.org/details/island-of-secrets_202303
 */
 
@@ -25,7 +25,6 @@ public class ParsedCommand {
 	private final String command;
 	private final String[] splitTwoCommand;
 	private final String[] splitFullCommand;
-	private final String codedCommand;
 	private final int verbNumber;
 	private final int nounNumber;
 	
@@ -64,12 +63,10 @@ public class ParsedCommand {
      * @param splitCommand split command array (up to two words: verb and noun)
      * @param command      the full raw command string as entered by the player
      */
-	public ParsedCommand(int verbNumber, int nounNumber, String codedCommand, 
-						String[] splitCommand, String command) {
+	public ParsedCommand(int verbNumber, int nounNumber, String[] splitCommand, String command) {
 				
 		this.splitTwoCommand = splitCommand;
 		this.splitFullCommand = command.split(" ");
-		this.codedCommand = codedCommand;
 		this.verbNumber = verbNumber;
 		this.nounNumber = nounNumber;
 		this.command = command;
@@ -176,14 +173,7 @@ public class ParsedCommand {
 	public String getCommand() {
 		return command;
 	}
-	
-    /**
-     * @return the encoded form of the command
-     */
-	public String getCodedCommand() {
-		return codedCommand;
-	}
-	
+		
     /**
      * @return an array of up to two elements: verb and noun
      */
@@ -291,4 +281,5 @@ public class ParsedCommand {
 
 /* 3 December 2025 - Created file
  * 5 December 2025 - Cleared game specific data
+ * 6 December 2025 - Removed coded command
  */

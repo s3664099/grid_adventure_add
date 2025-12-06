@@ -1,6 +1,7 @@
 1) Remove C64_Code & IOS_Notes
 2) Reset all of the comments in all of the files
 3) Clear out all of the game specific data
+4) Removed all command classes except move (so as to have class for each command instead)
 
 	- Add file descriptions back
 

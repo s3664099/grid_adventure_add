@@ -2,8 +2,8 @@
 Title: <Game Name> Command Processor
 Author: 
 Translator: David Sarkies
-Version: 0.0
-Date: 3 December 2025
+Version: 0.1
+Date: 6 December 2025
 Source:
 */
 
@@ -84,5 +84,6 @@ public class CommandProcessor {
 	}
 }
 
-/*3 December 2025 - Created File
+/* 3 December 2025 - Created File
+ * 6 December 2025 - Removed Coded Command
  */

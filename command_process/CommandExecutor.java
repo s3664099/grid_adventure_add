@@ -9,16 +9,9 @@ Source:
 
 package command_process;
 
-import java.util.Random;
 import java.util.logging.Logger;
 
-import commands.Combat;
-import commands.Consume;
-import commands.Examine;
-import commands.ItemCommands;
-import commands.Miscellaneous;
 import commands.Move;
-import data.GameEntities;
 import game.Game;
 import game.Player;
 import game.PostCommand;
@@ -33,7 +26,6 @@ import persistence.Persistence;
  */
 public class CommandExecutor {
 	
-	private Random rand = new Random();
 	private static final Logger logger = Logger.getLogger(CommandExecutor.class.getName());
 	
 	/**
@@ -57,15 +49,7 @@ public class CommandExecutor {
 		
 		if (command.checkMoveState()) {
 			logger.info("Moving");
-			
-			if (command.getCodedCommand().equals(GameEntities.CODE_DOWN_STOREROOM) && 
-				game.getItem(GameEntities.ITEM_TRAPDOOR).getItemFlag()==0) {
-				player.setRoom(rand.nextInt(5)+1);
-				result = result.success(game, player);
-			
-			} else {
-				result = new Move().executeMove(game,player,command);
-			}
+			result = new Move().executeMove(game,player,command);
 		} else if (command.checkSave()) {
 			logger.info("Save");
 			result = new Persistence(game,player,command).save();
