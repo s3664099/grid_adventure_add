@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Game Class
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Game Class
+Author: 
 Translator: David Sarkies
-Version: 5.0
-Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Version: 0.1
+Date: 7 December 2025
+Source: 
 */
 
 package game;
@@ -22,8 +22,8 @@ import data.Location;
  * Core game state and logic container.
  * <p>
  * The {@code Game} class manages rooms, items, exits, game state transitions,
- * messages, save-game handling, and special mechanics such as apples and
- * special exits. It acts as the central hub for the adventure game.
+ * messages, save-game handling, and special mechanics. It acts as the central 
+ * hub for the adventure game.
  * </p>
  */
 public class Game implements Serializable {
@@ -46,9 +46,6 @@ public class Game implements Serializable {
 	/** Handler for special items. */
 	private SpecialItemHandler specialItemHandler = new SpecialItemHandler();
 	
-	/** Handler for rooms with random exits. */
-	private RandomExitHandler randomExitHandler = new RandomExitHandler();
-	
 	/** Standard in-game message builder. */
 	private MessageBuilder normalMessage = new MessageBuilder("Let your quest begin!");
 	
@@ -59,22 +56,18 @@ public class Game implements Serializable {
 	private String[] commands = {"","",""};
 	
 	/** Enum of possible game states. */
-	private enum GameState { STARTED,RUNNING,SAVED_GAMES,ENDED,SHELTER,GIVE,RESTART }
+	private enum GameState { STARTED,RUNNING,SAVED_GAMES,ENDED,RESTART }
 	
 	private boolean hasMessage = false;
 	private GameState gameState = GameState.STARTED;
-	private String giveNoun = "";
 	
 	/** Save game tracking. */
 	private int saveGameCount = 0;
-	private int startGameCount = Constants.INITIAL_START_COUNT;
+	private int startGameCount = Constants.INITIAL_SAVE_COUNT;
 	private boolean upperLimitSavedGames = false;
 	private boolean lowerLimitSavedGames = false;
 	private String[] savedGamesDisplayed = {"","","","",""};
-	
-	/** Remaining apples available to the player. */
-	private int apple_count = Constants.INITIAL_APPLE_COUNT;
-	
+		
 	/**
 	 * Creates a new game instance with the given locations, items, and exit handler.
 	 *
@@ -124,7 +117,7 @@ public class Game implements Serializable {
 	    
 	    List<String> itemsFound = new ArrayList<>();
 		
-		String specialItems = specialItemHandler.getSpecialItems(roomNumber, itemList, locationList, apple_count);
+		String specialItems = specialItemHandler.getSpecialItems(roomNumber, itemList, locationList);
 		if(!specialItems.isEmpty()) {
 			itemsFound.add(specialItems);
 		}
@@ -148,9 +141,7 @@ public class Game implements Serializable {
 	public String getExits(int roomNumber) {
 		
 		exitNumbers = locationList[roomNumber].getExits();
-		if (roomNumber == Constants.RANDOM_ROOM) {
-			exitNumbers = randomExitHandler.generateRandomExits();			
-		}
+
 		String exits = "";
 		for (int i=0;i<Constants.DIRECTIONS.length;i++) {
 			if (exitNumbers[i] && specialExitHandler.displayExit(roomNumber, Constants.DIRECTIONS[i])) {
@@ -344,33 +335,6 @@ public class Game implements Serializable {
 		this.savedGamesDisplayed = gameDisplayed;
 	}	
 	
-	// --- Apple mechanic ---
-
-	/**
-	 * Checks if apples are left, decreasing the count if so.
-	 *
-	 * @return true if apples remain, false otherwise
-	 */
-	public boolean checkApples() {
-		
-		boolean applesLeft = false;
-		
-		if (apple_count>0) {
-			apple_count --;
-			applesLeft = true;
-			logger.info("Apple count decreased. Remaining apples: " + apple_count);
-		}
-		return applesLeft;
-	}
-	
-
-	/** Returns the noun associated with a GIVE command. */
-	public String getGiveNoun() {
-		gameState = GameState.RUNNING;
-		return giveNoun;
-	}
-	
-
 	/** Sets game state to running. */
 	public void setRunningGameState() {
 		gameState = GameState.RUNNING;
@@ -379,17 +343,6 @@ public class Game implements Serializable {
 	/** Sets game state to saved game selection. */
 	public void setSavedGameState() {
 		gameState = GameState.SAVED_GAMES;
-	}
-	
-	/** Sets game state to GIVE with a noun. */
-	public void setGiveState(String noun) {
-		giveNoun = noun;
-		gameState = GameState.GIVE;
-	}
-	
-	/** Sets game state to shelter. */
-	public void setShelterGameState() {
-		gameState = GameState.SHELTER;
 	}
 	
 	/** Toggles message state on/off. */
@@ -440,16 +393,6 @@ public class Game implements Serializable {
 		return gameState == GameState.RESTART;
 	}
 	
-	/** Returns true if game is in GIVE state. */
-	public boolean isGiveState() {
-		return gameState == GameState.GIVE;
-	}
-	
-	/** Returns true if game is in shelter state. */
-	public boolean isShelterState() {
-		return gameState == GameState.SHELTER;
-	}
-	
 	/** Returns true if game is showing messages. */
 	public boolean isMessageState() {
 		return hasMessage;
@@ -461,61 +404,6 @@ public class Game implements Serializable {
 	}
 }
 
-/* 30 October 2024 - Created File
- * 31 October 2024 - Added description to the locations.
- * 				   - Adjusted way to extract rooms
- * 1 November 2024 - Added the items
- * 3 November 2024 - Added method to retrieve the player's current location
- * 4 November 2024 - Added method to retrieve items at the player's location.
- * 5 November 2024 - Updated get items method. Added get exits method
- * 				   - added methods to deal with the message
- * 10 November 2024 - Removed Description for location & items
- * 11 November 2024 - Added second method so that only some messages are extended.
- * 13 November 2024 - Added method to check if exit available
- * 17 November 2024 - Added code to retrieve flag and location sum
- * 1 December 2024 - Added variables to hold messages to go into the panel.
- * 8 December 2024 - Updated the add message method so comma doesn't appear at start
- * 9 December 2024 - Made class serializable
- * 15 December 2024 - Added flag to end game
- * 20 December 2024 - Added count for displaying saved games available.
- * 22 December 2024 - Added response required for give and shelter
- * 23 December 2024 - Updated to version 2.
- * 25 December 2024 - Changed exits to boolean
- * 29 December 2024 - Added function for getting special exits
- * 30 December 2024 - Added more detail for some of the directions, and removed them from the main direction list.
- * 3 January 2024 - Fixed problem where Median wasn't being loaded.
- * 30 January 2025 - Added code for number of apples. Also added code to display apple tree.
- * 31 January 2025 - Completed Testing and increased version
- *                   Added code to display torches in room.
- *                   Updated the description in Grandpa's shack.
- * 2 February 2025 - Added int to outlines the location type
- * 3 February 2025 - Added description for flint
- * 5 February 2025 - Added getter for specific room. Set the visited flag for initial room
- * 9 February 2025 - Added room type to the room.
- * 18 February 2025 - Added link to book in first message
- * 25 February 2025 - Started working on displaying saved games as buttons
- * 2 March 2025 - Added variable to confirm start of game
- * 5 March 2025 - Increased to v4.0
- * 15 March 2025 - Moved initialisation to separate section. Refactored way to handle exits
- * 16 March 2025 - Added specialItemHandler. Moved constants to constants class
- * 				   Moved random exits to a separate class to generate the random exits
- * 				   Generated SpecialExitHandler once
- * 20 March 2025 - Updated class to handle message builder
- * 23 March 2025 - Combined addMessage and addNormalMessage
- * 				   Updated check start to Enum
- * 25 March 2025 - Updated method name for checking initial game state
- * 				 - Added gameState for checking saved games & end game
- * 18 April 2025 - Added startGameCount to display button to open book
- * 23 April 2025 - Removed Response Required and replaced with Enum
- * 25 April 2025 - Added more states
- * 28 April 2025 - Added methods to set the Message and Lightning State
- * 30 June 2025 - Updated give state for holding object to give. Changed bools to represent the function
- * 14 July 2025 - Made the items passed through to a long message
- * 15 July 2025 - Moved array holding directions to top as a global variable
- * 25 July 2025 - Added message state set when panel message added.
- * 28 July 2025 - Created separate boolean for message state
- * 19 August 2025 - Tightened code based on recommendations. Added JavaDocs
- * 6 November 2025 - Added a restart state
- * 23 November 2025 - Removed Lighting State
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
+ * 7 December 2025 - Removed game related code
  */

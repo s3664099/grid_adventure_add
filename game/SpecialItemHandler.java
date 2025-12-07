@@ -52,7 +52,7 @@ public class SpecialItemHandler implements Serializable {
      * @param locationList the array of {@link Location} instances (indexed by room number)
      * @return the special description for the room, or an empty string if none should be shown
      */
-	public String getSpecialItems(int roomNumber,Item[] itemList, Location[] locationList,int appleCount) {
+	public String getSpecialItems(int roomNumber,Item[] itemList, Location[] locationList) {
 		String description = itemDescriptions.getOrDefault(roomNumber,"");
 		return description;
 	}

@@ -26,6 +26,7 @@ public class Constants {
 	public static final int NUMBER_OF_NOUNS = 0;
 	public static final int NUMBER_EXITS = 4;
 	public static final int FLAG_HIDDEN = 9;
+	public static final int INITIAL_SAVE_COUNT = 2;
 	
 	//Panel Related constants
 	public static final int MESSAGE_LENGTH = 100;
