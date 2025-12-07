@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Game
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Game Engine
+Author: 
 Translator: David Sarkies
-Version: 5.0
-Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Version: 0.1
+Date: 7 December 2025
+Source: 
 */
 
 package game;
@@ -31,7 +31,6 @@ public class GameEngine implements GameCommandHandler,GameStateProvider {
 	
 	private Game game;
 	private Player player;
-	private SwimmingHandler swimming = new SwimmingHandler();
 	private CommandProcessor processor;
 	private final String[] commandHistory = {"","",""};
 	private final Test test = new Test();
@@ -62,13 +61,8 @@ public class GameEngine implements GameCommandHandler,GameStateProvider {
 		
 		ActionResult result = null;
 		
-		if(player.isPlayerStateSwimming()) {
-			result = swimming.execute(command,player,game);
-		} else {
-			processor = new CommandProcessor();
-			result = processor.execute(command,game,player);
-		}
-		
+		processor = new CommandProcessor();
+		result = processor.execute(command,game,player);
 		applyResult(result);
 		updateCommandHistory(command);
 		
@@ -135,18 +129,8 @@ public class GameEngine implements GameCommandHandler,GameStateProvider {
      *
      * @return the room description
      */
-	public String getRoom() {
-		
-		String description = "";
-		if (player.isPlayerStateSwimming()) {
-			description = swimming.getDescription();
-		} else {
-			player.updateDisplayRoom();
-			int room = player.getDisplayRoom();		
-			description = String.format("You are %s",game.getRoomName(room));
-		}
-		
-		return description;
+	public String getRoom() {	
+		return String.format("You are %s",game.getRoomName(player.getDisplayRoom()));	
 	}
 
     /**
@@ -214,15 +198,7 @@ public class GameEngine implements GameCommandHandler,GameStateProvider {
      * @return a list of messages
      */
 	public List<String> getMessage() {
-		
-		//Swimming in poisoned Waters?
-		if (player.isPlayerStateSwimming()) {
-			swimming.setMessage(game, player);
-		}
-		
-		List<String> message = game.getNormalMessage();
-		
-		return message;
+		return game.getNormalMessage();
 	}
 		
     /** @return the last three commands entered */
@@ -268,11 +244,7 @@ public class GameEngine implements GameCommandHandler,GameStateProvider {
 	public void setSavedGameState() {
 		game.setSavedGameState();
 	}
-	
-	public void setShelterGameState() {
-		game.setShelterGameState();
-	}
-	
+		
 	public void setMessageState() {
 		game.setMessageGameState();
 	}
@@ -297,18 +269,6 @@ public class GameEngine implements GameCommandHandler,GameStateProvider {
 	
 	public boolean isRunningState() {
 		return game.isRunningState();
-	}
-	
-	public boolean isGiveState() {
-		return game.isGiveState();
-	}
-	
-	public boolean isShelterState() {
-		return game.isShelterState();
-	}
-	
-	public boolean isSwimmingState() {
-		return player.isPlayerStateSwimming();
 	}
 	
 	public boolean isMessageState() {
@@ -368,101 +328,33 @@ public class GameEngine implements GameCommandHandler,GameStateProvider {
 	public List<String> getPanelMessage() {
 		return game.getPanelMessage();
 	}
+
+	@Override
+	public boolean isGiveState() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isShelterState() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isSwimmingState() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void setShelterGameState() {
+		// TODO Auto-generated method stub
+		
+	}
 } 
 
 /*
-8 September 2024 - Created File
-9 September 2024 - Added method to retrieve input and started processing command
-10 September 2024 - Added code to respond to incorrect commands
-12 September 2024 - Started building the move methods.
-14 September 2024 - Added the poison water method and continued the move method
-					completed main move section.
-17 September 2024 - Finished Movement and started on take objects
-21 September 2024 - Finished give & drop methods2750 GOSUB720:GOSUB2760:RETURN
-22 September 2024 - Completed Eat & Drink methods
-23 September 2024 - Completed ride, open and started break
-30 September 2024 - Continued working on the break function
-4 October 2024 - Finished Break Method
-5 October 2024 - Finished Attack Method
-12 October 2024 - Finished Last part of attack method and added swim method.
-				  Added shelter method & set up Help method
-18 October 2024 - Added the help method
-23 October 2024 - Added rub method, examine & fill method
-24 October 2024 - Added the say & rest method
-26 October 2024 - Added wave method and refactored data name and methods. Added info method
-27 October 2024 - Started writing the updates for every move
-28 October 2024 - Added Swampman Section
-29 October 2024 - Added end game functions & completed basic conversion
-	  			- Upgraded to version 1.0
-1 November 2024 - Cleared previous methods and stored game & player class
-4 November 2024 - Added methods to retrieve strings from game & player
-5 November 2024 - Added get exit method
-				- Added get message method
-				- Added get previous command method
-				- Added process command method
-7 November 2024 - Added array to hold three previous commands
-8 November 2024 - Change frame to panel and added refresh options.
-9 November 2024 - Began working on processing the command
-11 November 2024 - Got the command processing working and now working on coding the command
-12 November 2024 - Added extra parameter to create coded command being noun number
-13 November 2024 - Added code to execute the command
-25 November 2024 - Added new panel for handling the give command.
-				   Moved panel generating functions into new methods
-29 November 2024 - Passed coded command to GivePanel
-30 November 2024 - Added message panel for response to giving Median a shiny pebble
-1 December 2024 - Added panel to display messages.
-7 December 2024 - Added stub for poisonous waters subgame
-8 December 2024 - Added code to retrieve loaded game details.
-16 December 2024 - Added code to handle swimming in poisoned waters
-22 December 2024 - Added check to determine response type
-23 December 2024 - Added shelter process
-				 - Updated to version 2.
-26 December 2024 - Removed the strength display, and added some comments
-29 December 2024 - Added calls to the test object
-				 - Added call to the special exits in the room
-3 January 2025 - Moved the panel determination to separate function
-11 January 2025 - Added the end game flag to when the player runs out of strength while swimming.
-15 January 2025 - Added code so shelter goes to the correct place.
-31 January 2025 - Completed Testing and increased version
-1 February 2025 - Removed unused variables
-5 February 2025 - Added getter for the game
-17 February 2025 - Added restart function
-22 February 2025 - Added a getPlayer function
-23 February 2025 - Fixed surfacing for the swimming in poisoned waters
-3 March 2025 - Added call to focus on command line
-5 March 2025 - Increased to v4.0
-11 March 2025 - Updated code due to moving timeRemaining into a map for player stats
-12 March 2025 - Updated code to use the hashmap for wisdom, strength & weight
-15 March 2025 - Updated class to handle a separate swimming class.
-17 March 2025 - Changed setMessage to addMessage
-21 March 2025 - Added throws declaration
-22 March 2025 - Updated MessagePanel constructor
-23 March 2025 - Merged addMessage and addNormalMessage
-24 March 2025 - Added Interfaces
-25 March 2025 - Added method checking initial game state & displayed games
-26 March 2025 - Commented out code to enable to run
-29 March 2025 - Hid setCommandField
-31 March 2025 - Removed panel refresh. Removed panel from process command
-4 April 2025 - Removed UI Components. Added functions to retrieve room details for map
-10 April 2025 - Removed restart and added set room function
-12 April 2025 - Changed to calling correct limit for saved games
-13 April 2025 - Removed panel from increase & descrease load. Updated to reflect interface
-20 April 2025 - Added get Room Name function
-23 April 2025 - Added the set response type and addMessage function
-			  - Removed process shelter
-			  - Removed command processing
-24 April 2025 - Created CommandResult class and move methods
-25 April 2025 - Added methods for player state
-27 April 2025 - Created swimming handler and moved swimming related code there.
-1 May 2025 - Fixed errors arising from changes to code
-5 May 2025 - Made game & player mutable (due to need for changing)
-		   - Updated for ActionResult
-30 June 2025 - Removed separate process for give
-24 July 2025 - Updated for messagePanel
-22 July 2025 - Added get panel message
-28 July 2025 - Added function to update message state
-17 August 2025 - Added Javadocs
-6 November 2025 - Added check for restart game state
-23 November 2025 - Removed Lightning State
-3 December 2025 - Increased version number
+3 December 2025 - Created File
+7 December 2025 - Removed game related code
 */
