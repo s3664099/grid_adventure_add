@@ -2,8 +2,8 @@
 Title: <Game Name> Constant Class
 Author: 
 Translator: David Sarkies
-Version: 0.1
-Date: 3 December 2025
+Version: 0.2
+Date: 7 December 2025
 Source: 
 
 This class is designed to hold the constants. They have been made public since they
@@ -44,10 +44,10 @@ public class Constants {
 	public static final int STARTING_WISDOM = 0;
 	public static final int STARTING_TIME = 0;
 	
-	private static final String NORTH = "North";
-	private static final String SOUTH = "South";
-	private static final String EAST = "East";
-	private static final String WEST = "West";
+	public static final String NORTH = "North";
+	public static final String SOUTH = "South";
+	public static final String EAST = "East";
+	public static final String WEST = "West";
 	public static final String[] DIRECTIONS = {NORTH, SOUTH, EAST,WEST};
 
 	public static final String STAT_STRENGTH = "strength";
@@ -57,4 +57,5 @@ public class Constants {
 
 /* 3 December 2025 - Created File
  * 6 December 2025 - Cleared values
+ * 7 December 2025 - Made direction names public
  */

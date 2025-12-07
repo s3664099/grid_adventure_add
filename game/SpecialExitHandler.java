@@ -1,12 +1,10 @@
 /*
-Title: Island of Secrets Special Exit Handler
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Special Exit Handler
+Author: 
 Translator: David Sarkies
-Version: 5.0
-Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
-
-Remove magic numbers, and directions and use the GameEntities, plus special ones for the direction names (since already used in Game Entities)
+Version: 0.1
+Date: 7 December 2025
+Source: 
 */
 
 package game;
@@ -15,6 +13,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import data.Constants;
 import data.GameEntities;
 import data.Item;
 
@@ -58,15 +57,6 @@ public class SpecialExitHandler implements Serializable {
      * </ul>
      */
 	private Map<Integer, String[]> specialExits = new HashMap<Integer, String[]>();
-
-	 /** Extra description appended when a trapdoor is present. */
-	private static final String TRAPDOOR_DESCRIPTION = " and a closed trapdoor in the floor";
-	
-    /** Common exit direction labels. */
-	private static final String NORTH = "North";
-	private static final String SOUTH = "South";
-	private static final String EAST = "East";
-	private static final String WEST = "West";
 	
     /**
      * Constructs and populates the special exit mapping.
@@ -77,20 +67,8 @@ public class SpecialExitHandler implements Serializable {
      * </p>
      */
 	public SpecialExitHandler() {
-	    specialExits.put(GameEntities.ROOM_STOREROOM, new String[]{"","There is a door to the east"});
-	    specialExits.put(GameEntities.ROOM_CAVE, new String[]{WEST,"You can also go west into the cave"});
-	    specialExits.put(GameEntities.ROOM_BUILDING, new String[]{WEST,"You can also go west into the hut"});
-	    specialExits.put(GameEntities.ROOM_CLEARING, new String[]{WEST,"You can also go west into the hut"});
-	    specialExits.put(GameEntities.ROOM_ABODE_HUT, new String[]{NORTH,"You can also go north into the hut"});
-	    specialExits.put(GameEntities.ROOM_CASTLE_WALL, new String[]{NORTH,"You can also go north into the portal"});
-	    specialExits.put(GameEntities.ROOM_LAIR, new String[]{NORTH,"You can also go east out of the lair"});
-	    specialExits.put(GameEntities.ROOM_HUT, new String[]{NORTH,"You can also go north out of the hut"});
-	    specialExits.put(GameEntities.ROOM_LOGMAN_HUT, new String[]{NORTH,"You can also go north out of the cabin"});
-	    specialExits.put(GameEntities.ROOM_PYRAMID_ROOF, new String[]{NORTH,"You can also go north down of the pyramid"});
-	    specialExits.put(GameEntities.ROOM_OUTSIDE_HUT, new String[]{SOUTH,"You can go south out of the hut"});
-	    specialExits.put(GameEntities.ROOM_PYRAMID_STEP, new String[]{SOUTH,"You can also go south up the pyramid"});
-	    specialExits.put(GameEntities.ROOM_GRANDPAS_SHACK, new String[]{EAST,"You can go east out of the shack"});
-	    specialExits.put(GameEntities.ROOM_LOGMAN_HALL, new String[]{EAST,"You can go east out of the hall"});
+	   //specialExits.put(GameEntities.ROOM_STOREROOM, new String[]{"","There is a door to the east"});
+	   //specialExits.put(GameEntities.ROOM_CAVE, new String[]{Constants.WEST,"You can also go west into the cave"});
 	}
 	
     /**
@@ -116,8 +94,6 @@ public class SpecialExitHandler implements Serializable {
      * Retrieves the special exit description for a given room.
      * <p>
      * If the room has a custom exit description, that string is returned.
-     * In the storeroom, if the trapdoor is still closed (based on the item state),
-     * an additional line about the trapdoor is appended.
      * </p>
      * 
      * @param roomNumber the ID of the current room
@@ -128,11 +104,6 @@ public class SpecialExitHandler implements Serializable {
 		
 		String[] exitDescriptions = specialExits.getOrDefault(roomNumber, new String[]{"", ""});
 		String baseDescription = exitDescriptions[1];
-		
-		//Is player in the trapdoor room
-		if (roomNumber == GameEntities.ROOM_STOREROOM && itemList[GameEntities.ITEM_TRAPDOOR].getItemFlag() !=0) {
-			baseDescription += TRAPDOOR_DESCRIPTION;
-		}
 		
 		return baseDescription;
 	}
