@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets MessagePanel
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> MessagePanel
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 0.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source: 
 */
 
 package view;
@@ -137,23 +137,5 @@ public class MessagePanel extends JPanel implements GameView {
 		return this;
 	}
 }
-/* 30 November 2024 - Created File
- * 1 December 2024 - Change name of class to specific name
- * 2 December 2024 - Added longer delay for last display
- * 4 December 2024 - Added code to have different messages appear if repeating
- * 23 December 2024 - Updated to version 2.
- * 18 January 2025 - Removed the unused includes and added a serializable section to get rid of warnings.
- * 31 January 2025 - Completed Testing and increased version
- * 5 March 2025 - Increased to v4.0
- * 21 March 2025 - Updated for MessageBuilder class
- * 22 March 2025 - Fixed issue with MessagePanel - works now.
- * 26 March 2025 - Commented out code to allow code to run
- * 24 July 2025 - Started updating message panel to display special messages
- * 26 July 2025 - The class now works without errors, but does not display message
- * 				- Message now displays
- * 				- Message now returns to the main at the end
- * 27 September 2025 - Updated code based on recommendations.
- * 					 - Added JavaDocs
- * 24 November 2025 - Fixed stalling messages where only one message
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
  */

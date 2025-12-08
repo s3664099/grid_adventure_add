@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Room Panel
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Room Panel
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 0.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source: 
 */
 
 package view;
@@ -227,13 +227,5 @@ public class RoomPanel extends JPanel {
 	}
 }
 
-/* 25 March 2025 - Created File
- * 26 March 2026 - Added code to produce the contents
- * 28 March 2025 - Complete panel by adding message label
- * 1 April 2025 - Updated refresh to display items
- * 2 April 2025 - Fixed issue with items not displaying
- * 3 April 2025 - Updated code to take the Game State
- * 18 April 2025 - Removed redundant functions, and updated rest as per DeepSeek.
- * 24 September 2025 - Added JavaDocs
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
  */

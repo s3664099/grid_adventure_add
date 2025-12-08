@@ -29,7 +29,6 @@ import data.GameEntities;
 import controller.MapButton;
 import controller.QuitButton;
 import controller.SearchGameButton;
-import controller.ShelterButton;
 import interfaces.GameStateProvider;
 import ui.GameController;
 
@@ -128,8 +127,6 @@ public class CommandPanel  extends JPanel  {
 				
 		if (isInitialGameState()) {
 			add(createButtonPanel("Click for Clues & Hints",new BookButton(panel,game),WIDE_BUTTON_INDENT));
-		} else if (isSeekingShelter()) {
-			addShelterButtonPanels();
 		} else if (isShowSavedGameState()) {
 			addSaveGameButtonPanels();
 		} else if (isEndGameState()) {
@@ -156,22 +153,7 @@ public class CommandPanel  extends JPanel  {
 		spaceLabel.setText("");
 		return spacePanel;
 	}
-	
-    /**
-     * Adds panels containing buttons that allow the player
-     * to choose a shelter location during the “seeking shelter” state.
-     */
-	private void addShelterButtonPanels() {
-		String[] shelters = {"Grandpa's Shack","Cave of Snelm","Log Cabin"};
-		Integer[] shelterLocations = {GameEntities.ROOM_GRANDPAS_SHACK,GameEntities.ROOM_SNELM_LAIR,GameEntities.ROOM_HUT};
 		
-		for (int i=0;i<SHELTER_COUNT;i++) {
-			if(state.getRoomVisited(shelterLocations[i])) {
-				add(createButtonPanel(shelters[i],new ShelterButton(game,shelterLocations[i]),BUTTON_INDENT));
-			}
-		}
-	}
-	
     /**
      * Adds buttons representing recent command history,
      * allowing the player to quickly repeat past commands.
@@ -291,15 +273,6 @@ public class CommandPanel  extends JPanel  {
 		return state.isInitialGameState();
 	}
 	
-    /**
-     * Checks if the player is currently seeking shelter.
-     *
-     * @return {@code true} if the game state requires the player to choose a shelter
-     */
-	private boolean isSeekingShelter() {
-		return state.isShelterState();
-	}
-	
 	/**
      * Checks if the game is currently displaying the saved-games list.
      *
@@ -317,8 +290,7 @@ public class CommandPanel  extends JPanel  {
      *         saved-game, or end-game states
      */
 	private boolean isNormalUI() {
-		return !state.isShelterState() &&
-				!state.isSavedGameState() &&
+		return !state.isSavedGameState() &&
 				!state.isEndGameState() &&
 				!state.isRestartGameState();
 	}
@@ -351,11 +323,7 @@ public class CommandPanel  extends JPanel  {
      * @return {@code true} if the map button can be shown; {@code false} otherwise
      */
 	private boolean showMapButton() {
-		boolean showMapButton = true;
-		if(state.isSwimmingState()) {
-			showMapButton = false;
-		}
-		return showMapButton;
+		return true;
 	}
 	
     /**
@@ -373,27 +341,6 @@ public class CommandPanel  extends JPanel  {
 	}
 }
 
-/* 26 March 2025 - Created File
- * 27 March 2025 - Added command line
- * 28 March 2025 - Added space creation panel
- * 30 March 2025 - Completed Class
- * 31 March 2025 - Changed GameEngine to game controller
- * 1 April 2025 - Updated code to request focus in the commandField. Command button works
- * 3 April 2025 - Fixed problem with multiple command and initial state not changing. Updated
- *                to handle command state.
- * 6 April 2025 - Updated Map Button
- * 7 April 2025 - Activated button to open webpage
- * 8 April 2025 - Updated the quit and restart buttons to display
- * 9 April 2025 - Activated the restart button
- * 10 April 2025 - Updated shelterButton
- * 11 April 2025 - Displayed buttons for loading saved games. Removed LoadGameButton and just used command button
- * 				   Fixed issue with loading game
- * 18 April 2025 - Updated code based on recommendations by DeepSeek.
- * 11 July 2025 - Update show map check.
- * 27 July 2025 - Removed code not needed on map button
- * 26 September 2025 - Removed magic numbers. Added JavaDocs
- * 9 October 2025 - Changed lair to Snelm's Lair
- * 6 November 2025 - Added restart game command
- * 2 December 2025 - Hid locations not visited from shelter
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
+ * 8 December 2025 - Removed Game related code
  */

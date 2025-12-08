@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Game Frame
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Game Frame
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 0.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source: 
 */
 
 package view;
@@ -127,19 +127,5 @@ public class GameFrame extends JFrame implements GameUI {
 		dispose();
 	}
 }
-/* 8 November 2024 - Created File
- * 23 December 2024 - Passed frame to panel to enable quit function
- * 					- Updated to version 2.
- * 31 January 2025 - Completed Testing and increased version
- * 2 February 2025 - Added generated serial ID
- * 3 March 2025 - Added call to focus on command line
- * 5 March 2025 - Increased to v4.0
- * 29 March 2025 - Hid set command field
- * 4 April 2025 - Updated frame to build map panel
- * 8 April 2025 - Removed unusued code
- * 26 July 2025 - Added check to display messages
- * 15 August 2025 - Added check for lightning panel
- * 22 September 2025 - Updated and added JavaDocs
- * 23 November 2025 - Removed Lightning Panel
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
  */

@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Game Pabel
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Game Pabel
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 0.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source: 
 */
 
 package view;
@@ -127,13 +127,5 @@ public class GamePanel extends JPanel {
 	}
 }
 
-/* 5 April 2025 - Created File
- * 6 April 2025 - Fixed double display for main view. Fixed issue with map not displaying
- * 15 April 2025 - Update class based on DeepSeek Recommendations
- * 24 July 2025 - Added the messagePanel option
- * 28 July 2025 - Added the lightningPanel option
- * 15 August 2025 - Updated lightningPanel option
- * 22 September 2025 - Updated class and added JavaDocs
- * 23 November 2025 - Removed Lightning Panel
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
 */

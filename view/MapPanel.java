@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Map Panel
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Map Panel
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 0.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source: 
 */
 
 package view;
@@ -410,22 +410,5 @@ public class MapPanel extends JPanel implements GameView {
 }
 
 /*
- * 2 February 2025 - Created File
- * 4 February 2025 - Added Borders to the map panel.
- * 5 February 2025 - Added code to only set label when room entered.
- * 9 February 2025 - Retrieve and add room type to the panel
- * 10 February 2025 - Added the images to the map. Added the walls
- * 22 February 2025 - Added image for player
- * 5 March 2025 - Increased to v4.0
- * 5 April 2025 - Updated code based on Deepseek recommendations
- * 6 April 2025 - Fixed issue where map not displaying
- * 7 April 2025 - Fixed problem where not all rooms being displayed.
- * 				- Button to return player to game now works.
- * 20 April 2025 - Update class based on recommendations
- * 				 - Added tool tips to display location name when hovering
- * 21 April 2025 - Moved MapController to a separate class in  Controller
- * 27 July 2025 - Updated game button to remove code not used.
- * 18 September 2025 - Removed game and panel from Map Controller
- * 26 September 2025 - 
- * 3 December 2025 - Increased version number
+ * 3 December 2025 - Created File
  */

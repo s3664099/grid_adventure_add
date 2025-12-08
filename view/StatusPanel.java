@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Status Panel
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Status Panel
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 9.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source: 
 */
 
 package view;
@@ -136,12 +136,5 @@ public class StatusPanel extends JPanel {
 	}
 }
 
-/* 25 March 2025 - Created File
- * 26 March 2025 - Fixed error with time not showing
- * 3 April 2025 - Updated code to take Game State
- * 16 April 2025 - Updated code based on DeepSeek
- * 25 September 2025 - Updated code based on recommendations
- * 					 - Added JavaDocs
- * 18 October 2025 - Fixed issue where stats not updating
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created file
  */
