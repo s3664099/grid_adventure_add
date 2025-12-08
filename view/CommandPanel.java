@@ -25,7 +25,6 @@ import controller.BookButton;
 import controller.CommandButton;
 import controller.CommandListener;
 import controller.ShowMainViewButton;
-import data.GameEntities;
 import controller.MapButton;
 import controller.QuitButton;
 import controller.SearchGameButton;
@@ -57,7 +56,6 @@ public class CommandPanel  extends JPanel  {
 	private static final int BUTTON_INDENT= 320;
 	private static final int WIDE_BUTTON_INDENT = 260;
 	private static final int COMMAND_FIELD_INDENT = 170;
-	private static final int SHELTER_COUNT = 3;
 	
 	//Componants
 	private JTextField commandField = new JTextField(2);

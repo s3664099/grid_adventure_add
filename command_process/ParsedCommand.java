@@ -2,8 +2,8 @@
 Title: <Game Name> Parsed Command
 Author:
 Translator: David Sarkies
-Version: 0.2
-Date: 6 December 2025
+Version: 0.3
+Date: 8 December 2025
 Source: https://archive.org/details/island-of-secrets_202303
 */
 
@@ -267,19 +267,10 @@ public class ParsedCommand {
 	public boolean checkRestart() {
 		return commandType == CommandType.RESTART;
 	}
-	
-	/** @return true if the noun is 'table' */
-	public boolean checkNounTable() {
-		return splitTwoCommand[1] != null && splitTwoCommand[1].equals(GameEntities.NOUN_TABLE);
-	}
-	
-	/** @return true if the noun is 'room' */
-	public boolean checkNounRoom() {
-		return splitTwoCommand[1] != null && splitTwoCommand[1].equals(GameEntities.NOUN_ROOM);
-	}
 }
 
 /* 3 December 2025 - Created file
  * 5 December 2025 - Cleared game specific data
  * 6 December 2025 - Removed coded command
+ * 8 December 2025 - Fixed errors and removed noun table & room functions
  */

@@ -2,8 +2,8 @@
 Title: <Game Name> Move Command
 Author: 
 Translator: David Sarkies
-Version: 0.1
-Date: 6 December 2025
+Version: 0.2
+Date: 8 December 2025
 Source: https://archive.org/details/island-of-secrets_202303
 */
 
@@ -39,8 +39,8 @@ public class Move {
 		int verbNumber = command.getVerbNumber();
 		int nounNumber = command.getNounNumber();
 
-		if(nounNumber>GameEntities.MOVE_NOT_DIRECTION && nounNumber != GameEntities.ITEM_BOAT) {
-			nounNumber -= 43;
+		if(nounNumber>GameEntities.MOVE_NOT_DIRECTION) {
+			nounNumber -= Constants.NUMBER_OF_ITEMS;
 		}
 		
 		return new ParsedCommand(verbNumber,nounNumber,command.getSplitTwoCommand(),command.getCommand());
@@ -102,15 +102,12 @@ public class Move {
 		
 		//Move is not blocked
 		if (!blockedCheck.isValid()) {
+			
 			int direction = command.getNounNumber();
-			
-			if(command.getNounNumber()!=GameEntities.ITEM_BOAT) {
-				int newRoom = calculateNewRoom(player.getRoom(),direction);
-				player.setRoom(newRoom);
-				game.addMessage("Ok",true,true);
-				game.getRoom(newRoom).setVisited();
-			}
-			
+			int newRoom = calculateNewRoom(player.getRoom(),direction);
+			player.setRoom(newRoom);
+			game.addMessage("Ok",true,true);
+			game.getRoom(newRoom).setVisited();			
 			blockedCheck = handleRoomEntryEffects(game,player,command);
 		}
 		
@@ -192,4 +189,5 @@ public class Move {
 
 /* 3 December 2025 - Created File
  * 6 December 2025 - Removed game specific code
+ * 8 December 2025 - Fixed errors
  */
