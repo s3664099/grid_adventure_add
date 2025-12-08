@@ -2,8 +2,8 @@
 Title: <Game Name> Status Panel
 Author: 
 Translator: David Sarkies
-Version: 9.0
-Date: 3 December 2025
+Version: 1.0
+Date: 8 December 2025
 Source: 
 */
 
@@ -137,4 +137,5 @@ public class StatusPanel extends JPanel {
 }
 
 /* 3 December 2025 - Created file
+ * 8 December 2025 - Increased version
  */

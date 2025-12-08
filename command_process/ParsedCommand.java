@@ -2,7 +2,7 @@
 Title: <Game Name> Parsed Command
 Author:
 Translator: David Sarkies
-Version: 0.3
+Version: 1.0
 Date: 8 December 2025
 Source: https://archive.org/details/island-of-secrets_202303
 */
@@ -273,4 +273,5 @@ public class ParsedCommand {
  * 5 December 2025 - Cleared game specific data
  * 6 December 2025 - Removed coded command
  * 8 December 2025 - Fixed errors and removed noun table & room functions
+ * 				   - Increased version number
  */

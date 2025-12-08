@@ -2,7 +2,7 @@
 Title: <Game Name> Read Operation Interface
 Author: 
 Translator: David Sarkies
-Version: 0.1
+Version: 1.0
 Date: 8 December 2025
 Source: 
 */
@@ -115,4 +115,5 @@ public interface GameStateProvider {
 
 /* 3 December 2025 - Created File
  * 8 December 2025 - Removed game related code
+ * 				   - Increased version
  */

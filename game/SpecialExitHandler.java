@@ -2,8 +2,8 @@
 Title: <Game Name> Special Exit Handler
 Author: 
 Translator: David Sarkies
-Version: 0.1
-Date: 7 December 2025
+Version: 1.0
+Date: 8 December 2025
 Source: 
 */
 
@@ -109,10 +109,7 @@ public class SpecialExitHandler implements Serializable {
 	}
 }
 
-/* 15 March 2025 - Created File
- * 17 March 2025 - Made class serialisable
- * 6 July 2025 - Updated directions out of cave
- * 18 July 2025 - Move hardcoded trapdoor section to GameEntities.
- * 23 August 2025 - Updated Class by removing magic numbers. Added JavaDocs
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
+ * 7 December 2025 - Removed game related code
+ * 8 December 2025 - Increased version number
  */

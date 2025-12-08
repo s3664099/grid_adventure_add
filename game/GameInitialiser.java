@@ -2,8 +2,8 @@
 Title: <Game Name> Game Initialiser
 Author: 
 Translator: David Sarkies
-Version: 0.1
-Date: 7 December 2025
+Version: 1.0
+Date: 8 December 2025
 Source: 
 */
 
@@ -105,4 +105,5 @@ public final class GameInitialiser {
 
 /* 3 December 2025 - Created file.
  * 7 December 2025 - Removed game related code
+ * 8 December 2025 - Increased version number
  */

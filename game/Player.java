@@ -2,8 +2,8 @@
 Title: <Game Name> Initialise Game Class
 Author: 
 Translator: David Sarkies
-Version: 0.1
-Date: 7 December 2025
+Version: 1.0
+Date: 8 December 2025
 Source: 
 */
 
@@ -151,4 +151,5 @@ public class Player implements Serializable {
 
 /* 3 December 2025 - Created File
  * 7 December 2025 - Cleared Game Related code
+ * 8 December 2025 - Increased version number
  */

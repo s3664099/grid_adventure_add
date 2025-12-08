@@ -2,7 +2,7 @@
 Title: <Game Name> Game State
 Author: 
 Translator: David Sarkies
-Version: 0.1
+Version: 1.0
 Date: 8 December 2025
 Source:
 */
@@ -244,4 +244,5 @@ public class GameState implements GameStateProvider {
 
 /* 3 December 2025 - Created file
  * 8 December 2025 - Removed Game related code
+ * 				   - Increased version
  */

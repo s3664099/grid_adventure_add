@@ -2,7 +2,7 @@
 Title: <Game Name> Move Command
 Author: 
 Translator: David Sarkies
-Version: 0.2
+Version: 1.0
 Date: 8 December 2025
 Source: https://archive.org/details/island-of-secrets_202303
 */
@@ -190,4 +190,5 @@ public class Move {
 /* 3 December 2025 - Created File
  * 6 December 2025 - Removed game specific code
  * 8 December 2025 - Fixed errors
+ * 				   - Increased version number
  */

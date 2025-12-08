@@ -2,8 +2,8 @@
 Title: <Game Name> Special Item Handler Class
 Author: 
 Translator: David Sarkies
-Version: 0.0
-Date: 7 December 2025
+Version: 1.0
+Date: 8 December 2025
 Source: 
 */
 
@@ -60,4 +60,5 @@ public class SpecialItemHandler implements Serializable {
 
 /* 3 December 2025 - Created File
  * 7 December 2025 - Removed game related code
+ * 8 December 2025 - Increased version
  */

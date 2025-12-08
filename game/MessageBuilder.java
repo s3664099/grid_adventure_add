@@ -2,8 +2,8 @@
 Title: <Game Name> Message Builder Class
 Author: 
 Translator: David Sarkies
-Version: 0.0
-Date: 3 December 2025
+Version: 1.0
+Date: 8 December 2025
 Source: 
 */
 
@@ -149,5 +149,6 @@ public class MessageBuilder implements Serializable {
     }
 }
 
-/* 3 December 2025 - Increased version number
+/* 3 December 2025 - Created file
+ * 8 December 2025 - Increased version number
  */

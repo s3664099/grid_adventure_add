@@ -2,7 +2,7 @@
 Title: <Game Name> GameController
 Author: 
 Translator: David Sarkies
-Version: 0.1
+Version: 1.0
 Date: 8 December 2025
 Source: 
 */
@@ -195,4 +195,5 @@ public final class GameController implements GameCommandHandler {
 
 /* 3 December 2025 - Created file
  * 8 December 2025 - Removed game specific code
+ * 				   - Increased version
  */

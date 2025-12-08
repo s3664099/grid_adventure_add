@@ -2,8 +2,8 @@
 Title: <Game Name> Command Validator
 Author: 
 Translator: David Sarkies
-Version: 0.2
-Date: 6 December 2025
+Version: 1.0
+Date: 8 December 2025
 Source: https://archive.org/details/island-of-secrets_202303
 */
 
@@ -160,4 +160,5 @@ public class CommandValidator {
 /* 3 December 2025 - Created File
  * 5 December 2025 - Removed game specific code
  * 6 December 2025 - Removed game specific methods
+ * 8 December 2025 - Increased version number
  */

@@ -2,8 +2,8 @@
 Title: <Game Name> Constant Class
 Author: 
 Translator: David Sarkies
-Version: 0.2
-Date: 7 December 2025
+Version: 1.0
+Date: 8 December 2025
 Source: 
 
 This class is designed to hold the constants. They have been made public since they
@@ -59,4 +59,5 @@ public class Constants {
 /* 3 December 2025 - Created File
  * 6 December 2025 - Cleared values
  * 7 December 2025 - Made direction names public
+ * 8 December 2025 - Increased version number
  */

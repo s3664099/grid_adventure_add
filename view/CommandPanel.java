@@ -2,8 +2,8 @@
 Title: Island of Secrets Command Panel
 Author: Jenny Tyler & Les Howarth
 Translator: David Sarkies
-Version: 5.0
-Date: 3 December 2025
+Version: 1.0
+Date: 8 December 2025
 Source: https://archive.org/details/island-of-secrets_202303
 */
 
@@ -341,4 +341,5 @@ public class CommandPanel  extends JPanel  {
 
 /* 3 December 2025 - Created File
  * 8 December 2025 - Removed Game related code
+ * 				   - Increased version
  */

@@ -2,7 +2,7 @@
 Title: <Game Name> Game Specific Constant Class
 Author: 
 Translator: David Sarkies
-Version: 0.2
+Version: 1.0
 Date: 8 December 2025
 Source: 
 
@@ -55,4 +55,5 @@ public class GameEntities {
 /* 3 December 2025 - Created File
  * 6 December 2025 - Cleared contents
  * 8 December 2025 - Added back required codes
+ * 				   - Increased version number
  */

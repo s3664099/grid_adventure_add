@@ -2,8 +2,8 @@
 Title: <Game Name> Command Executor Class
 Author:  
 Translator: David Sarkies
-Version: 0.1
-Date: 4 December 2025
+Version: 1.0
+Date: 8 December 2025
 Source:
 */
 
@@ -72,4 +72,5 @@ public class CommandExecutor {
 /* 3 December 2025 - Increased version number
  *                 - Removed all but move, save, load, quit & restart
  * 4 December 2025 - Added Class Title Back
+ * 8 December 2025 - Increased version number
  */

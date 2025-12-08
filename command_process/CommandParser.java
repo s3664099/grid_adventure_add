@@ -2,8 +2,8 @@
 Title: <Game Name> Command Parser
 Author: 
 Translator: David Sarkies
-Version: 0.2
-Date: 6 December 2025
+Version: 1.0
+Date: 8 December 2025
 Source: 
 */
 
@@ -220,4 +220,5 @@ public class CommandParser {
 /* 3 December 2025 - Created File
  * 5 December 2025 - Removed game specific code
  * 6 December 2025 - Removed coded command
+ * 8 December 2025 - Increased version number
  */
