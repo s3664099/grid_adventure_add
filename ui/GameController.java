@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets GameController
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> GameController
+Author: 
 Translator: David Sarkies
-Version: 5.0
-Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Version: 0.1
+Date: 8 December 2025
+Source: 
 */
 
 package ui;
@@ -114,16 +114,7 @@ public final class GameController implements GameCommandHandler {
 	public void setMessageState() {
 		engine.setMessageState();
 	}
-	
-    /**
-     * Checks if the engine is currently in "give" state.
-     *
-     * @return true if in give state, false otherwise
-     */
-	public boolean isGiveState() {
-		return engine.isGiveState();
-	}
-	
+		
     /**
      * Checks if the engine is currently in message display state.
      *
@@ -133,14 +124,6 @@ public final class GameController implements GameCommandHandler {
 		return engine.isMessageState();
 	}
 		
-    /**
-     * Sets the engine into shelter game state.
-     */
-	@Override
-	public void setShelterGameState() {
-		engine.setShelterGameState();
-	}
-	
     /**
      * Sets the current room in the engine and refreshes the UI.
      *
@@ -210,24 +193,6 @@ public final class GameController implements GameCommandHandler {
 	}
 }
 
-/* 30 March 2025 - Created file
- * 31 March 2025 - Made gameUI the GameFrame
- * 1 April 2025 - Added getResponseType
- * 3 April 2025 - Updated Code to take GameState
- * 4 April 2025 - Added function to set the mapPanel
- * 8 April 2025 - Added closeUI function
- * 9 April 2025 - Added functon to restart game
- * 10 April 2025 - Added set room function
- * 13 April 2025 - Updated code for increasing and descreasing save game positions
- * 				 - Updated based on DeepSeek recommendations.
- * 23 April 2025 - Added setResponseType to change response type and addMessage to add a message
- * 				   from the controller, Removed processShelter
- * 25 April 2025 - Updated based on changes to enums in Game class and Player class
- * 30 June 2025 - Removed separate process for give
- * 28 July 2025 - Updated code so as to set message state
- * 15 August 2025 - Added check Lightning mode
- * 21 September 2025 - Added JavaDocs
- * 6 November 2025 - Added restart game command
- * 23 November 2025 - Removed Lightning State
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created file
+ * 8 December 2025 - Removed game specific code
  */

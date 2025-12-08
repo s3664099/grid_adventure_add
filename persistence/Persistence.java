@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Persistence Commands
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Persistence Commands
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 0.1
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source: 
 */
 
 package persistence;
@@ -305,15 +305,5 @@ public class Persistence {
 	}
 }
 
-/* 16 June 2025 - Created File
- * 17 June 2025 - Created Save Game & Load Game File.
- * 18 June 2025 - Added display saved game functions. Added quit function and tidied up.
- * 7 July 2025 - Fixed code so reason for save game fail displays
- * 			   - Added logger for game failed to save & load
- * 			   - Stripped .sav from load game displays
- * 3 September 2025 - Changed for updated ActionResult changes
- * 15 September 2025 - Tightened Code and added JavaDocs
- * 29 September 2025 - Tightened Comments
- * 6 November 2025 - Added restart game action
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
  */

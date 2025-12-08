@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Read Operation Interface
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Read Operation Interface
+Author: 
 Translator: David Sarkies
-Version: 5.0
-Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Version: 0.1
+Date: 8 December 2025
+Source: 
 */
 
 package interfaces;
@@ -103,17 +103,8 @@ public interface GameStateProvider {
     /** @return True when game has restarted */
 	public boolean isRestartGameState();
 	
-    /** @return True when a give response is required */
-	public boolean isGiveState();
-	
-    /** @return True when seeking shelter */
-	public boolean isShelterState();
-
     /** @return True when standard game state */
 	public boolean isRunningState();
-	
-    /** @return True when swimming player state */
-	public boolean isSwimmingState();
 	
     /** @return True when normal player state */
 	public boolean isNormalState();
@@ -122,16 +113,6 @@ public interface GameStateProvider {
 	public boolean isMessageState();
 }
 
-/* 24 March 2025 - Created File
- * 25 March 2025 - Added further required methods
- * 4 April 2025 - Added functions for handling the mapPanel
- * 14 April 2025 - Added JavaDocs
- * 20 April 2025 - Added getRoomName
- * 23 April 2025 - Removed response required
- * 25 April 2025 - Added 
- * 24 July 2025 - Added getPanelMessage
- * 1 October 2025 - Tightened Comments
- * 6 November 2025 - Added restart game check
- * 23 November 2025 - Removed Lightning State
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
+ * 8 December 2025 - Removed game related code
  */

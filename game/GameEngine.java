@@ -328,30 +328,6 @@ public class GameEngine implements GameCommandHandler,GameStateProvider {
 	public List<String> getPanelMessage() {
 		return game.getPanelMessage();
 	}
-
-	@Override
-	public boolean isGiveState() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isShelterState() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isSwimmingState() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void setShelterGameState() {
-		// TODO Auto-generated method stub
-		
-	}
 } 
 
 /*

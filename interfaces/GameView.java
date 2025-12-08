@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets GameView Interface
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> GameView Interface
+Author: 
 Translator: David Sarkies
-Version: 5.0
+Version: 0.0
 Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Source: 
 */
 
 package interfaces;
@@ -42,7 +42,5 @@ public interface GameView {
 	JComponent getViewComponent();
 }
 
-/* 5 April 2025 - Created File
- * 14 April 2025 - Added JavaDocs
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created File
  */

@@ -1,10 +1,10 @@
 /*
-Title: Island of Secrets Game State
-Author: Jenny Tyler & Les Howarth
+Title: <Game Name> Game State
+Author: 
 Translator: David Sarkies
-Version: 5.0
-Date: 3 December 2025
-Source: https://archive.org/details/island-of-secrets_202303
+Version: 0.1
+Date: 8 December 2025
+Source:
 */
 
 package ui;
@@ -36,12 +36,9 @@ public class GameState implements GameStateProvider {
 	private final boolean saveGameState;
 	private final boolean endGameState;
 	private final boolean restartGameState;
-	private final boolean giveState;
-	private final boolean shelterState;
 	private final boolean runningState;
 	private final boolean messageState;
 	private final boolean normalState;
-	private final boolean swimmingState;
 	
 	//Saved games navigation
 	private final String[] displayedSavedGames;
@@ -75,12 +72,9 @@ public class GameState implements GameStateProvider {
 		this.saveGameState = stateProvider.isSavedGameState();
 		this.endGameState = stateProvider.isEndGameState();
 		this.restartGameState = stateProvider.isRestartGameState();
-		this.giveState = stateProvider.isGiveState();
-		this.shelterState = stateProvider.isShelterState();
 		this.runningState = stateProvider.isRunningState();
 		this.messageState = stateProvider.isMessageState();
 		this.normalState = stateProvider.isNormalState();
-		this.swimmingState = stateProvider.isSwimmingState();
 		
 		//Saved games
 		this.displayedSavedGames = stateProvider.getDisplayedSavedGames().clone();
@@ -226,25 +220,10 @@ public class GameState implements GameStateProvider {
 	public int hashCode() {
 	    return Objects.hash(currentRoom, finalScore, room);
 	}
-
-	@Override
-	public boolean isGiveState() {
-		return giveState;
-	}
-
-	@Override
-	public boolean isShelterState() {
-		return shelterState;
-	}
 	
 	@Override
 	public boolean isRunningState() {
 		return runningState;
-	}
-
-	@Override
-	public boolean isSwimmingState() {
-		return swimmingState;
 	}
 
 	@Override
@@ -263,17 +242,6 @@ public class GameState implements GameStateProvider {
 	}
 }
 
-/* 1 April 2025 - Created File
- * 2 April 2025 - Added up to endGameState
- * 3 April 2025 - Completed Game State
- * 4 April 2025 - Updated for new functions added to interface
- * 14 April 2025 - Updated based on Deepseek recommendations
- * 				 - Added equals, hash, and 
- * 20 April 2025 - Added get Room Name function
- * 23 April 2025 - Updated to enums instead if response required
- * 25 April 2025 - Updated based on enums in Player class.
- * 26 July 2025 - Added getPanelmessages
- * 6 November 2025 - Added a check for a restart game state
- * 23 November 2025 - Removed Lightning State
- * 3 December 2025 - Increased version number
+/* 3 December 2025 - Created file
+ * 8 December 2025 - Removed Game related code
  */
